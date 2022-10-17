@@ -79,6 +79,7 @@ Required JSON body (**Sign Up** endpoint):
 }
 ```
 **Note:** When someone signs up, it's role is automatically **User**.
+<br/><br/>
 
 **Login:**
 
