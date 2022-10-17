@@ -46,6 +46,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
     }
+
     private Authentication getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
         if (token != null) {
@@ -54,9 +55,9 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                     .verify(token.replace(TOKEN_PREFIX, ""))
                     .getSubject();
             if (email != null) {
-                User user = userRepository.findByEmail(email).orElseThrow(()->new NotFoundException(USER_NOT_FOUND));
+                User user = userRepository.findByEmail(email).orElseThrow(() -> new NotFoundException(USER_NOT_FOUND));
                 UserAuthDto principal = UserAuthDto.builder().user(user).build();
-                return new UsernamePasswordAuthenticationToken(email,null,principal.getAuthorities());
+                return new UsernamePasswordAuthenticationToken(email, null, principal.getAuthorities());
             }
             return null;
         }

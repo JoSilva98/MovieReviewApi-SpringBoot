@@ -77,7 +77,7 @@ public class MovieService implements IMovieService {
 
     private void clearMovieCache() {
         Cache movieCache = this.cacheManager.getCache("movies");
-        if(movieCache!=null)movieCache.clear();
+        if (movieCache != null) movieCache.clear();
     }
 
     private void checkIfGenreExists(Movie movie) {

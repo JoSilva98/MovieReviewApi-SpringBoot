@@ -43,7 +43,7 @@ public class ReviewController {
         return this.reviewService.add(reviewDto);
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public ResponseEntity<Object> delete(@Valid @RequestBody ReviewDeleteDto reviewDeleteDto) {
         return this.reviewService.delete(reviewDeleteDto);
     }

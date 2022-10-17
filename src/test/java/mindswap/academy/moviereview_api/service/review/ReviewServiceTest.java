@@ -67,7 +67,6 @@ public class ReviewServiceTest {
 
     @Nested
     class getReview {
-
         @Test
         void test_getAll() {
             when(iReviewRepository.findAll())

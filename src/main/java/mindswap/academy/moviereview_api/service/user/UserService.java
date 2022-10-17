@@ -14,7 +14,6 @@ import mindswap.academy.moviereview_api.persistence.model.user.role.Role;
 import mindswap.academy.moviereview_api.persistence.repository.movie.IMovieRepository;
 import mindswap.academy.moviereview_api.persistence.repository.user.IUserRepository;
 import mindswap.academy.moviereview_api.persistence.repository.user.role.IRoleRepository;
-import nonapi.io.github.classgraph.json.JSONUtils;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
@@ -27,8 +26,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static mindswap.academy.moviereview_api.exception.ExceptionMessages.*;
 
@@ -180,6 +178,6 @@ public class UserService implements IUserService, UserDetailsService {
 
     private void clearUserCache() {
         Cache userCache = this.cacheManager.getCache("users");
-        if(userCache!=null)userCache.clear();
+        if (userCache != null) userCache.clear();
     }
 }
